@@ -18,12 +18,19 @@ public class Main {
             System.out.println("qualcuno si è collegato");
             BufferedReader in = new BufferedReader(new InputStreamReader(mys.getInputStream()));
             DataOutputStream out=new DataOutputStream(mys.getOutputStream());
+            String stringaRicevuta;
+            do {
+                
             
-            String stringaRicevuta= in.readLine();
-            System.out.println("stringa ricevuta= "+stringaRicevuta);
+                stringaRicevuta= in.readLine();
+                System.out.println("stringa ricevuta= "+stringaRicevuta);
 
-            String stringMaiuscola = stringaRicevuta.toUpperCase();
-            out.writeBytes(stringMaiuscola+'\n');
+                String stringMaiuscola = stringaRicevuta.toUpperCase();
+                out.writeBytes(stringMaiuscola+'\n');
+
+            }while(stringaRicevuta!="0000");
+                
+            
 
             mys.close();
             ss.close();
